@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PERSON1=John
-PERSON2=Jane
+PERSON1=$1
+PERSON2= $2
 
-echo "$PERSON1 and $PERSON2 are friends."
+echo "$PERSON1 and $PERSON2 are friends. "
