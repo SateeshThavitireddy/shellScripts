@@ -5,4 +5,4 @@ read -s PIN_NUMBER
 
 echo "Your Pin Number is: $PIN_NUMBER"
 
-echp "Course name is : $COURSE"
+echp "Course name is :"$COURSE
