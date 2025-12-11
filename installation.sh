@@ -6,7 +6,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [$USERID -ne 0 ]; then
+if [ $USERID -ne 0 ]; then
     echo "ERROR:: Please run this script with root privileges."
     exit 1
 fi 
@@ -20,7 +20,7 @@ fi
 #fi
 
 CHECK_ALREADY_INSTALLED(){
-    if [ $1 -ne 0 ]: then
+    if [ $1 -ne 0 ]; then
         echo -e "$Y $2 is not installed on the system. Proceeding with installation... $N"
         dnf install nginx -y
         VALIDATE $? "nginx"
