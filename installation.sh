@@ -38,3 +38,6 @@ VALIDATE(){
     fi
 }
 CHECK_ALREADY_INSTALLED $? "nginx"
+
+dnf uninstall nginx -y
+VALIDATE $? "nginx"
