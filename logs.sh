@@ -13,4 +13,4 @@ fi
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-echo "$G ${SCRIPT_NAME} $N"
+echo -e "$G ${SCRIPT_NAME} $N"
