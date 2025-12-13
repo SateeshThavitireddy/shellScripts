@@ -36,8 +36,8 @@ CHECK_ALREADY_INSTALLED(){
         VALIDATE $? $2
     else
       echo -e "$Y $2 is already installed on this server $N" | tee -a $LOG_FILE
-      echo -e "$Y $2 already installed on this server $N" | tee -a $LOG_FILE
     fi
 }
 
+dnf list installed mysql &>>$LOG_FILE
 CHECK_ALREADY_INSTALLED $? "mysql" &>>$LOG_FILE
