@@ -30,6 +30,7 @@ VALIDATE(){
 }
 
 CHECK_ALREADY_INSTALLED(){
+    dnf list installed mysql &>>$LOG_FILE
     if [ $1 -ne 0 ]; then
         echo -e "$G preparing to install the $2 $N" | tee -a $LOG_FILE
         dnf install $2 -y &>>$LOG_FILE
@@ -39,5 +40,4 @@ CHECK_ALREADY_INSTALLED(){
     fi
 }
 
-dnf list installed mysql &>>$LOG_FILE
 CHECK_ALREADY_INSTALLED $? "mysql" &>>$LOG_FILE
