@@ -20,4 +20,4 @@ dnf install mysql -y
 VALIDATE $? "MYSQL"
 
 dnf install nginx -y
-VALIDATE $? "NGINX
+VALIDATE $? "NGINX"
