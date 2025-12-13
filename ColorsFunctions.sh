@@ -21,7 +21,7 @@ VALIDATE(){
 }
 
 CHECK_ALREADY_INSTALLED(){
-    if [ $1 -eq 0 ]; then
+    if [ $1 -ne 0 ]; then
         echo -e "$G preparing to install $2 $N"
         dnf install $2 -y
         VALIDATE $? $2
