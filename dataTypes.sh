@@ -5,7 +5,7 @@ NUMBER2=200
 
 SUM = $(($NUMBER1 + $NUMBER2))
 
-echo "Sum is $SUM"
+echo "Sum is ${SUM}"
 
 LEADER=("MODI","PUTIN","TRUDO","TRUMP")
 
