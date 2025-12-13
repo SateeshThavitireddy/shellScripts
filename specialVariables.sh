@@ -10,4 +10,4 @@ echo "PID of this script: $$"
 
 slepp 50 &
 
-echon "PID of the last command in backrgopund is: $!
+echon "PID of the last command in backrgopund is: $!"
