@@ -12,5 +12,5 @@ if [ $USERID -ne 0 ]; then
 fi
 
 LOGS_FOLDER="/var/log/shell-script"
-SCRIPT_NAME=$( echo $0 )
+SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 echo -e "$G ${SCRIPT_NAME} $N"
