@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USERID = $(id -u)
+USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -22,7 +22,7 @@ VALIDATE(){
 
 CHECK_ALREADY_INSTALLED(){
     if [ $1 -eq 0 ]; then
-        echo "$G preparing to install $2 $N"
+        echo -e "$G preparing to install $2 $N"
         dnf install $2 -y
         VALIDATE $? $2
     else
@@ -30,5 +30,5 @@ CHECK_ALREADY_INSTALLED(){
     fi
 }
 
-CHECK_ALREADY_INSTALLED $? "MYSQL"
+CHECK_ALREADY_INSTALLED $? "mysql"
 CHECK_ALREADY_INSTALLED $? "python3"
