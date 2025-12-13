@@ -22,11 +22,11 @@ VALIDATE(){
 
 CHECK_ALREADY_INSTALLED(){
     if [ $1 -eq 0 ]; then
-        echo -e "$Y $2 already installed on this server $N"
-    else
         echo "$G preparing to install $2 $N"
         dnf install $2 -y
         VALIDATE $? $2
+    else
+      echo -e "$Y $2 already installed on this server $N"
     fi
 }
 
