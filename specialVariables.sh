@@ -8,6 +8,6 @@ echo "Who is running this:$USER"
 echo "Home directory of user: $HOME"
 echo "PID of this script: $$"
 
-slepp 50 &
+sleep 50 &
 
 echon "PID of the last command in backrgopund is: $!"
