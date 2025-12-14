@@ -40,4 +40,4 @@ do
     '
 done
 
-source /roboShop/cart.sh
+source ./roboShop/cart.sh
