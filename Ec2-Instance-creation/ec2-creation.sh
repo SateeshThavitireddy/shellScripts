@@ -9,18 +9,18 @@ for instance in $@
 do 
     INSTANCE_ID=$(aws ec2 run-instances --image-id $AMI_ID  --instance-type t2.micro --security-group-ids $SECURITY_GROUP --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" --query 'Instances[0].InstanceId' --output text)
 
-    if [ $INSTANCE_ID != frontend ]; then
+    if [ $INSTANCE_ID !=: frontend ]; then
         ipAddress=$(aws ec2 describe-instances  --instance-id $INSTANCE_ID --query "Reservations[].Instances[].PrivateIpAddress" --output text)
         RECORD_NAME="$INSTANCE_ID.$DOMAIN_NAME"
     else 
-        ipAddress =$(aws ec2 describe-instances --instance-id $INSTANCE_ID --query "Instances[].publicIpAddress" --output text)
+        ipAddress=$(aws ec2 describe-instances --instance-id $INSTANCE_ID --query "Reservations[].Instances[].publicIpAddress" --output text)
         RECORD_NAME="$INSTANCE_ID.$DOMAIN_NAME"
     fi
 
     echo "$instance: $"
 
-    aws route53 change-resource-record-sets \
-    --hosted-sone-id $ZONE_ID \
+    aws route53 change-resource-record-sets
+    --hosted-sone-id $ZONE_ID 
     --change-batch '
     {
         "Comment": "Updating record set"
