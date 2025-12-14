@@ -57,6 +57,9 @@ VALIDATE $? "Download catalogue application code"
 cd /app 
 VALIDATE $? "Change directory to /app"
 
+rm -rf /app/* &>>$LOG_FILE
+VALIDATE $? "Clean old application code"
+
 unzip /tmp/catalogue.zip
 VALIDATE $? "Extract catalogue application code"
 
@@ -78,8 +81,8 @@ VALIDATE $? "Enable catalogue service"
 systemctl start catalogue
 VALIDATE $? "Start catalogue service"
 
-cp $SCRIPT_DIR/mongodb.rep dnf install mongodb-mongosh -y &>>$LOG_FILE
-VALIDATE $? "Install Mongodb client"
+cp $SCRIPT_DIR/mongodb.rep /etc/yum.repos.d/mongo.repo
+VALIDATE $? "Copy MongoDB repo file"
 
 dnf install mongodb-mongosh -y &>>$LOG_FILE
 VALIDATE $? "Install MongoDB client"
