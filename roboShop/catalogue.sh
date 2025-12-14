@@ -81,7 +81,7 @@ VALIDATE $? "Enable catalogue service"
 systemctl start catalogue
 VALIDATE $? "Start catalogue service"
 
-cp $SCRIPT_DIR/mongodb.rep /etc/yum.repos.d/mongo.repo
+cp $SCRIPT_DIR/mongodb.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Copy MongoDB repo file"
 
 dnf install mongodb-mongosh -y &>>$LOG_FILE
