@@ -40,4 +40,4 @@ do
     '
 done
 
-source ./catalogue.sh
+source ./frontend.sh
