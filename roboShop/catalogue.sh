@@ -23,7 +23,7 @@ mkdir -p $LOG_FOLDER
 echo "Script started execution at $(date)" &>>$LOG_FILE 
 
 VALIDATE(){
-    if[ $1 -ne 0 ]; then
+    if [ $1 -ne 0 ]; then
         echo -e "$R $2 Failed $N" | tee -a $LOG_FILE
         exit 1
     else
