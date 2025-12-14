@@ -15,6 +15,7 @@ LOG_FOLDER="/var/log/roboshop"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 MONGODB_HOST="mongodb.cloncurry.fun"
+SCRIPT_DIR=$PWD
 
 mkdir -p $LOG_FOLDER
 echo "Script started execution at $(date +%s)" | tee -a $LOG_FILE
@@ -64,6 +65,8 @@ VALIDATE $? "Changing directory to /app"
 
 npm install 
 
+cp $SCRIPT_DIR/cart.service /etc/systemd/system/cart.service
+VALIDATE $? "Copy systemctl service"
 
 systemctl daemon-reload &>>$LOG_FILE
 VALIDATE $? "Reloading systemctl daemon"
