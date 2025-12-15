@@ -5,5 +5,5 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo -e "$G This is Green Color Text $N"
-echo -e "Check out the color above is $G green $N"
+echo  "$R This is Green Color Text "
+echo  "Check out the color above is green"
