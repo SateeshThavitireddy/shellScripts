@@ -8,7 +8,8 @@ DOMAIN_NAME="cloncurry.fun"
 for instance in $@ # mongodb redis mysql
 do
     INSTANCE_ID=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t3.micro --security-group-ids $SECURITY_GROUP --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" --query 'Instances[0].InstanceId' --output text)
-
+    aws ec2 wait instance-status-ok --instance-ids "$INSTANCE_ID"
+    
     # Get Private IP
     if [ $instance != "frontend" ]; then
         IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
